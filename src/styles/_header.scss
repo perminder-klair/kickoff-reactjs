@@ -1,0 +1,19 @@
+.ui.fixed.head-bar {
+  background: $color-dark-grey;
+  margin-bottom: 15px;
+  padding-top: 12px;
+  color: $color-white;
+  a {
+    color: $color-white;
+  }
+  .logo {
+    .icon {
+      float: left;
+      margin-top: 3px;
+    }
+    img {
+      float: left;
+      width: 90px;
+    }
+  }
+}
