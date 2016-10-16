@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 
 import * as globalActions from '../core/global/globalActions';
 
-import AppComponent from '../components/AppComponent';
+import ContactPage from '../pages/Contact';
 
 function mapStateToProps(state, ownProps) {
     return {
-        ...ownProps,
-        rehydrationCompleted: state.global.rehydrationCompleted,
-        breadcrumb: state.global.breadcrumb
+        ...ownProps
     };
 }
 
@@ -21,4 +19,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactPage);

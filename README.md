@@ -1,15 +1,15 @@
 # Kickoff React
 
-A boilerplate made using ReactJs, AltJs and Semantic UI.
+A boilerplate made using ReactJs, Redux and Semantic UI.
+Sta
 
 ### Features
 
-- Easy state management using [AltJs](http://alt.js.org/)
+- Redux state management [redux](https://github.com/reactjs/redux)
 - SASS support
 - Manage app using [create-react-app](https://github.com/facebookincubator/create-react-app)
 - Easy deployment using [Surge.sh](https://surge.sh/)
-- Basic auth
-- Easy to plug in any API
+- API [Stackable.space](http://www.stackabke.space/)
 - [Semantic UI](http://semantic-ui.com/)
 
 ## Requirements

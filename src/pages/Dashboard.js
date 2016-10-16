@@ -1,17 +1,15 @@
-/*global $:true*/
-
-import React, { Component } from 'react';
-import Helmet from "react-helmet";
-
-import AppActions from '../actions/AppActions';
+import React, { Component, PropTypes } from 'react';
+import Helmet from 'react-helmet';
 
 class Dashboard extends Component {
     componentDidMount() {
-        setTimeout(() => {
-            AppActions.setBreadcrumb([{title: 'Dashboard'}]);
-        }, 200);
+        const { actions } = this.props;
 
-        $('.dashboard .menu .item').tab();
+        // set breadcrumb
+        actions.setBreadcrumb([{ title: 'Dashboard' }]);
+
+        // load gallery
+        actions.galleryRequest();
     }
 
     render() {
@@ -25,8 +23,12 @@ class Dashboard extends Component {
                     <p>Welcome to react starting poing.</p>
                 </div>
             </div>
-        )
+        );
     }
 }
+
+Dashboard.propTypes = {
+    actions: PropTypes.object
+};
 
 export default Dashboard;

@@ -2,29 +2,6 @@
   "name": "kickoff-react",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "concurrently": "^2.2.0",
-    "node-sass": "^3.9.0",
-    "react-scripts": "0.3.1"
-  },
-  "dependencies": {
-    "alertify.js": "^1.0.12",
-    "alt": "^0.18.4",
-    "alt-container": "^1.0.2",
-    "alt-utils": "^1.0.0",
-    "async": "^1.5.2",
-    "axios": "^0.14.0",
-    "classnames": "^2.2.5",
-    "lockr": "^0.8.4",
-    "moment": "^2.14.1",
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
-    "react-helmet": "^3.1.0",
-    "react-router": "^2.7.0",
-    "underscore": "^1.8.3",
-    "underscore.string": "^3.3.4",
-    "validate.js": "^0.10.0"
-  },
   "scripts": {
     "start": "concurrently -r 'npm run compile-scss' 'react-scripts start'",
     "build": "react-scripts build",
@@ -32,7 +9,39 @@
     "eject": "react-scripts eject",
     "compile-scss": "node-sass ./src/styles/style.scss -w -o ./src/styles"
   },
-  "eslintConfig": {
-    "extends": "./node_modules/react-scripts/config/eslint.js"
+  "dependencies": {
+    "axios": "^0.14.0",
+    "axios-mock-adapter": "^1.7.0",
+    "immutable": "3.8.1",
+    "key-mirror": "1.0.1",
+    "moment": "^2.14.1",
+    "normalizr": "^2.2.1",
+    "qs": "^6.2.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-helmet": "^3.1.0",
+    "react-redux": "4.4.5",
+    "react-router": "^2.7.0",
+    "redux": "3.5.2",
+    "redux-actions": "^0.12.0",
+    "redux-logger": "^2.6.1",
+    "redux-persist": "^4.0.0-alpha6",
+    "redux-persist-transform-immutable": "^3.2.0",
+    "redux-saga": "^0.12.0",
+    "redux-thunk": "2.1.0",
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.3.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.7.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-flowtype": "^2.20.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "concurrently": "^2.2.0",
+    "node-sass": "^3.9.0",
+    "react-scripts": "0.3.1"
   }
 }

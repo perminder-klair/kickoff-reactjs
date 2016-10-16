@@ -2,23 +2,24 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as globalActions from '../core/global/globalActions';
+import * as galleryActions from '../core/gallery/galleryActions';
 
-import AppComponent from '../components/AppComponent';
+import DashboardPage from '../pages/Dashboard';
 
 function mapStateToProps(state, ownProps) {
     return {
         ...ownProps,
-        rehydrationCompleted: state.global.rehydrationCompleted,
-        breadcrumb: state.global.breadcrumb
+        gallery: state.gallery
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators({
-            ...globalActions
+            ...globalActions,
+            ...galleryActions
         }, dispatch)
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

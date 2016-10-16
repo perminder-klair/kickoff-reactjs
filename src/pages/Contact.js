@@ -1,31 +1,31 @@
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
-class About extends Component {
+class Contact extends Component {
     componentDidMount() {
         const { actions } = this.props;
 
         // set breadcrumb
-        actions.setBreadcrumb([{ title: 'About' }]);
+        actions.setBreadcrumb([{ title: 'Contact' }]);
     }
 
     render() {
         return (
-            <div className="ui container about">
-                <Helmet title="About us" />
+            <div className="ui container contact">
+                <Helmet title="Contact us" />
                 <h3 className="ui top attached header">
-                    About us
+                    Contact us
                 </h3>
                 <div className="ui attached segment">
-                    <p>This is about page, coming soon!</p>
+                    <p>This is contact page, coming soon!</p>
                 </div>
             </div>
         );
     }
 }
 
-About.propTypes = {
+Contact.propTypes = {
     actions: PropTypes.object
 };
 
-export default About;
+export default Contact;
