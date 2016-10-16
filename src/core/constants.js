@@ -1,6 +1,6 @@
 // APP CONSTATNS
 const app = {
-    DEBUG: true,
+    DEBUG: false,
     MOCK: false,
     APP_NAME: 'Kickoff React',
 

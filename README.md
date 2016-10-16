@@ -1,7 +1,8 @@
 # Kickoff React
 
 A boilerplate made using ReactJs, Redux and Semantic UI.
-Sta
+
+[DEMO](http://kickoff-react.surge.sh/)
 
 ### Features
 
@@ -43,6 +44,10 @@ Once dependencies are installed, run with:
 ```sh
 npm start
 ```
+
+## Configuration
+
+Configuration file is located at `./core/constants.js`
 
 ## Build
 

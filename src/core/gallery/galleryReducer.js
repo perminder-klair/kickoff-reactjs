@@ -9,7 +9,7 @@ const {
 const InitialState = Record({
     error: null,
     isFetching: false,
-    data: false
+    data: []
 });
 
 const initialState = new InitialState();
