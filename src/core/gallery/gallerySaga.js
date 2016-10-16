@@ -9,7 +9,8 @@ import {
 } from './galleryActions';
 
 const {
-    STACKABLE_KEY
+    STACKABLE_KEY,
+    GALLERY_CONTAINER
 } = require('../constants').default;
 
 const {
@@ -20,8 +21,8 @@ function* fetchGallery() {
     try {
         const response = yield call(fetchApi, {
             method: 'get',
-            url: '/gallery',
-            parms: { stack: STACKABLE_KEY }
+            url: `/containers/${GALLERY_CONTAINER}/items`,
+            params: { token: STACKABLE_KEY }
         });
 
         yield put(gallerySuccess(response));

@@ -13,6 +13,9 @@ class Dashboard extends Component {
     }
 
     render() {
+        const { gallery } = this.props;
+        // console.log('gallery', gallery);
+
         return (
             <div className="ui container dashboard">
                 <Helmet title="Dashboard" />
@@ -21,6 +24,14 @@ class Dashboard extends Component {
                 </h3>
                 <div className="ui attached segment">
                     <p>Welcome to react starting poing.</p>
+                    <div className="ui divider" />
+
+                    <div className="ui medium header">Gallery</div>
+                    <div className="ui small images">
+                        {gallery.data.map(item =>
+                            <img src={item.data.image.url} alt={item.data.title} />
+                        )}
+                    </div>
                 </div>
             </div>
         );
@@ -28,7 +39,8 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-    actions: PropTypes.object
+    actions: PropTypes.object,
+    gallery: PropTypes.object
 };
 
 export default Dashboard;

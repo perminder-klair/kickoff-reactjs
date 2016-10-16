@@ -29,7 +29,7 @@ export default function galleryReducer(state = initialState, { payload, type }) 
 
     case GALLERY_SUCCESS:
         return state.set('isFetching', false)
-            .set('data', payload.data);
+            .set('data', payload.data.data);
 
     case GALLERY_FAILURE:
         return state.set('isFetching', false)
