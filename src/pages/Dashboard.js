@@ -38,7 +38,7 @@ class Dashboard extends Component {
                             <p>No gallery images found</p>
                             :
                                 gallery.data.map(item =>
-                                    <img src={item.data.image.url} alt={item.data.title} />
+                                    <img key={item._id} src={item.data.image.url} alt={item.data.title} />
                         )}
                     </div>
                 </div>
