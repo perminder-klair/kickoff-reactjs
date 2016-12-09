@@ -1,6 +1,6 @@
-# Tikkie
+# Kickoff React
 
-Tikkie app
+Kickoff React
 
 [DEMO](http://kickoff-react.surge.sh/)
 
