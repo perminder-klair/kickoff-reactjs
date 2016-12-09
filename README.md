@@ -1,6 +1,6 @@
-# Kickoff React
+# Tikkie
 
-A boilerplate made using ReactJs, Redux and Semantic UI.
+Tikkie app
 
 [DEMO](http://kickoff-react.surge.sh/)
 
