@@ -34,9 +34,16 @@ const VERSION = pack.version;
 
 store.dispatch(setVersion(VERSION));
 
+const scrollToTop = () => {
+    const pusher = document.getElementById('app');
+    if (pusher !== null) {
+        pusher.scrollIntoView();
+    }
+};
+
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={browserHistory} onUpdate={scrollToTop}>
             <Route path="/" component={App}>
                 <IndexRoute component={Dashboard} />
                 <Route path="about" component={About} />
