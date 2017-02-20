@@ -25,10 +25,10 @@ Kickoff React
 
 ## Installation
 
-Make sure you install `create-react-app` once globally first by:
+Close this repository locally by:
 
 ```sh
-npm install -g create-react-app
+git clone https://github.com/perminder-klair/kickoff-react.git app
 ```
 
 Start by installing dependencies:
