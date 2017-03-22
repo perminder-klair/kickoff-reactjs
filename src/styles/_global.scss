@@ -22,35 +22,3 @@ a {
 .float.right {
   float: right;
 }
-
-.ui.top.attached.header {
-  padding: 1.2rem 1rem;
-  button, a {
-    margin-top: -7px;
-  }
-}
-
-.ui.search>.results {
-  width: 100% !important;
-  .content {
-    padding: 0 !important;
-  }
-  .title {
-    border: 0 !important;
-    padding: 0 !important;
-    font-weight: 300 !important;
-  }
-}
-
-.ui.breadcrumb {
-  margin: 15px 0 !important;
-  color: $color-jumbo;
-  a {
-    color: $primary-color;
-  }
-}
-
-#app {
-  -webkit-transform: initial !important;
-  transform: initial !important;
-}
