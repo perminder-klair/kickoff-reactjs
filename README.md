@@ -1,6 +1,6 @@
 # Kickoff React
 
-A boilerplate made using ReactJs, Redux and Semantic UI.
+Kickoff React
 
 [DEMO](http://kickoff-react.surge.sh/)
 
@@ -25,10 +25,10 @@ A boilerplate made using ReactJs, Redux and Semantic UI.
 
 ## Installation
 
-Make sure you install `create-react-app` once globally first by:
+Close this repository locally by:
 
 ```sh
-npm install -g create-react-app
+git clone https://github.com/perminder-klair/kickoff-react.git app
 ```
 
 Start by installing dependencies:
