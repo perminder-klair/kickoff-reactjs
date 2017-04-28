@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 
-import './styles/style.css';
-import App from './containers/App';
-import Dashboard from './containers/Dashboard';
-import About from './containers/About';
-import Contact from './containers/Contact';
+import App from './components/App';
+import Dashboard from './pages/Dashboard';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+
+import './styles/style.css';
 
 /**
  * ## Actions
@@ -35,7 +36,7 @@ const VERSION = pack.version;
 store.dispatch(setVersion(VERSION));
 
 const scrollToTop = () => {
-    const pusher = document.getElementById('root');
+    const pusher = document.getElementById('app');
     if (pusher !== null) {
         pusher.scrollIntoView();
     }

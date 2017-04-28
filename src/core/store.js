@@ -1,6 +1,7 @@
+/* global window:true */
+
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import immutableTransform from 'redux-persist-transform-immutable';
 import createSagaMiddleware from 'redux-saga';
@@ -18,24 +19,19 @@ import reducer from './reducers';
 import rootSagas from './sagas';
 
 /**
-* Init logger
-*/
-const logger = createLogger();
-
-/**
  * ## configureStore
  * @param {Object} the state
  */
 export default function configureStore(initialState) {
     const sagaMiddleware = createSagaMiddleware();
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line
 
     const store = createStore(
         reducer,
         initialState,
-        compose(autoRehydrate(), applyMiddleware(
+        composeEnhancers(autoRehydrate(), applyMiddleware(
             sagaMiddleware,
-            thunk,
-            logger
+            thunk
         ))
       );
 

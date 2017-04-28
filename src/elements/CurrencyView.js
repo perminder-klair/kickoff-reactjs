@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import { numberFormat } from 'underscore.string';
 import _ from 'underscore';
 
-const CurrencyView = ({value, currency}) => {
-    if(_.isNull(value)) {
+const CurrencyView = ({ value, currency }) => {
+    if (_.isNull(value)) {
         value = 0;
     }
 

@@ -1,13 +1,11 @@
 import React, { PropTypes } from 'react';
 import moment from 'moment';
 
-const DateView = ({value, format}) => {
-    return (
-        <span>
-            {moment(value).format(format)}
-        </span>
-    );
-};
+const DateView = ({ value, format }) => (
+    <span>
+        {moment(value).format(format)}
+    </span>
+);
 
 DateView.defaultProps = {
     format: 'DD/MM/YYYY'

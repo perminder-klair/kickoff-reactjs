@@ -5,7 +5,7 @@ class SelectInputGroup extends Component {
     onChange = (e) => {
         this.props.onChange(e);
 
-        setTimeout(() => this.props.onBlur(), 500);//also trigger submit
+        setTimeout(() => this.props.onBlur(), 500); // also trigger submit
     };
 
     render() {

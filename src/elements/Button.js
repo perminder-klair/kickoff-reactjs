@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 const Button = (props) => {
-    let { type, size, ...restProps} = props;
+    let { type, size, ...restProps } = props;
 
     return (
         <button className={classNames('ui button', type, size)} type="submit" {...restProps}>

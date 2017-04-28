@@ -1,18 +1,2 @@
 body {
-  background-color: #f6f9f9;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-
-a {
-  color: #ae8929; }
-
-.ui.button.green {
-  background-color: #006233; }
-
-.ui.button.primary {
-  background-color: #ae8929; }
-
-.ui.button.secondary {
-  background-color: #006233; }
-
-.float.right {
-  float: right; }
+  margin-top: 10px; }

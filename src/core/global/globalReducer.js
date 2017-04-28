@@ -9,7 +9,8 @@ const {
 const InitialState = Record({
     version: null,
     breadcrumb: [],
-    rehydrationCompleted: false
+    rehydrationCompleted: false,
+    isFetching: false
 });
 
 const initialState = new InitialState();

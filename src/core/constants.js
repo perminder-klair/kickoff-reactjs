@@ -1,4 +1,5 @@
 // APP CONSTATNS
+
 const app = {
     DEBUG: false,
     MOCK: false,
