@@ -1,9 +1,11 @@
-/*global $:true*/
-/*global google:true*/
+/* global google:true*/
 
 import React, { PropTypes, Component } from 'react';
+import $ from 'jquery';
 
-class LocationInputGroup extends Component {
+import Field from '../Field';
+
+class LocationInput extends Component {
     constructor(props) {
         super(props);
 
@@ -16,7 +18,7 @@ class LocationInputGroup extends Component {
         $('.ui.search.location').on('keydown', this.handleKeyDown);
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         $('.ui.search.location').off('keydown', this.handleKeyDown);
     }
 
@@ -33,16 +35,16 @@ class LocationInputGroup extends Component {
             return;
         }
 
-        let autocompleteService = new google.maps.places.AutocompleteService();
+        const autocompleteService = new google.maps.places.AutocompleteService();
         autocompleteService.getPlacePredictions({
             input: this.state.query,
             location: new google.maps.LatLng(0, 0),
             radius: 100
         }, (suggestions) => {
-            //console.log('suggestions', suggestions);
+            // console.log('suggestions', suggestions);
             $('.ui.search.location').search({
                 source: suggestions,
-                minCharacters : 2,
+                minCharacters: 2,
                 maxResults: 12,
                 cache: false,
                 searchFullText: true,
@@ -50,19 +52,19 @@ class LocationInputGroup extends Component {
                     'description'
                 ],
                 fields: {
-                    categories      : 'results',     // array of categories (category view)
-                    categoryName    : 'name',        // name of category (category view)
-                    categoryResults : 'results',     // array of results (category view)
-                    description     : 'descriptionNO', // result description
-                    image           : 'image',       // result image
-                    price           : 'price',       // result price
-                    results         : 'results',     // array of results (standard)
-                    title           : 'description',       // result title
-                    action          : 'action',      // "view more" object name
-                    actionText      : 'text',        // "view more" text
-                    actionURL       : 'url'          // "view more" url
+                    categories: 'results',     // array of categories (category view)
+                    categoryName: 'name',        // name of category (category view)
+                    categoryResults: 'results',     // array of results (category view)
+                    description: 'descriptionNO', // result description
+                    image: 'image',       // result image
+                    price: 'price',       // result price
+                    results: 'results',     // array of results (standard)
+                    title: 'description',       // result title
+                    action: 'action',      // "view more" object name
+                    actionText: 'text',        // "view more" text
+                    actionURL: 'url'          // "view more" url
                 },
-                onSelect: (result, response) => {
+                onSelect: (result) => {
                     this.setState({
                         query: result.description
                     });
@@ -72,10 +74,9 @@ class LocationInputGroup extends Component {
         });
     };
 
-    render () {
+    render() {
         return (
-            <div className="field">
-                <label className="large">{this.props.label}</label>
+            <Field name={this.props.name} label={this.props.label}>
                 <div className="ui search location">
                     <input
                         className="prompt"
@@ -87,20 +88,20 @@ class LocationInputGroup extends Component {
                         id={this.props.name}
                         value={this.state.query}
                         onChange={this.onChange}
-                        onBlur={this.props.onBlur}/>
-                    <div className="results"></div>
+                        onBlur={this.props.onBlur} />
+                    <div className="results" />
                 </div>
-            </div>
-        )
+            </Field>
+        );
     }
 }
 
-LocationInputGroup.propTypes = {
+LocationInput.propTypes = {
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
-    value: PropTypes.string,
-    onBlur: PropTypes.func
+    value: PropTypes.string, // eslint-disable-line
+    onBlur: PropTypes.func // eslint-disable-line
 };
 
-export default LocationInputGroup;
+export default LocationInput;
