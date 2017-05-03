@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as globalActions from '../../core/global/globalActions';
 
-import DOM from './app';
-import Loading from '../Loading';
+import DOM from './layout';
+import Loading from '../../elements/Loading';
 
-class App extends React.Component {
+class Layout extends React.Component {
     constructor(props) {
         super(props);
         this.view = DOM;
@@ -25,6 +25,10 @@ class App extends React.Component {
     }
 }
 
+Layout.propTypes = {
+    rehydrationCompleted: PropTypes.bool.isRequired
+};
+
 function mapStateToProps(state, ownProps) {
     return {
         ...ownProps,
@@ -41,4 +45,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 
-import App from './components/App';
+import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -45,7 +45,7 @@ const scrollToTop = () => {
 ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory} onUpdate={scrollToTop}>
-            <Route path="/" component={App}>
+            <Route path="/" component={Layout}>
                 <IndexRoute component={Dashboard} />
                 <Route path="about" component={About} />
                 <Route path="contact" component={Contact} />

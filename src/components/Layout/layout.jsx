@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 import Header from '../Header';
-import Breadcrumb from '../Breadcrumb';
+import Breadcrumb from '../../elements/Breadcrumb';
 
 const {
     APP_NAME

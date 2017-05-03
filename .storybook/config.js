@@ -16,6 +16,8 @@ function loadStories() {
     require('../src/elements/LocationInput/LocationInput.story'); // eslint-disable-line
     require('../src/elements/CurrencyFormat/CurrencyFormat.story'); // eslint-disable-line
     require('../src/elements/DateFormat/DateFormat.story'); // eslint-disable-line
+    require('../src/elements/Loading/Loading.story'); // eslint-disable-line
+    require('../src/elements/Breadcrumb/Breadcrumb.story'); // eslint-disable-line
 }
 
 configure(loadStories, module);

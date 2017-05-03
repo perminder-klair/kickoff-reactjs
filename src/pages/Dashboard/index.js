@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import * as globalActions from '../../core/global/globalActions';
 import * as galleryActions from '../../core/gallery/galleryActions';
 
+import Loading from '../../elements/Loading';
+
 import DOM from './dashboard';
 
 class Dashboard extends React.Component {
@@ -26,7 +28,11 @@ class Dashboard extends React.Component {
     render() {
         const { global, gallery } = this.props;
 
-        return this.view({ global, gallery });
+        if (global.isFetching) {
+            return <Loading />;
+        }
+
+        return this.view({ gallery });
     }
 }
 

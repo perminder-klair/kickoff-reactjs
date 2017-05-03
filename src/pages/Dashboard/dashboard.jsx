@@ -3,13 +3,7 @@ import Helmet from 'react-helmet';
 
 import './dashboard.scss';
 
-import Loading from '../../components/Loading';
-
-const Dashboard = function ({ global, gallery }) {
-    if (global.isFetching) {
-        return <Loading />;
-    }
-
+const Dashboard = function ({ gallery }) {
     return (
         <div className="ui container dashboard">
             <Helmet title="Dashboard" />
@@ -35,8 +29,7 @@ const Dashboard = function ({ global, gallery }) {
 };
 
 Dashboard.propTypes = {
-    global: PropTypes.object.isRequired,
-    gallery: PropTypes.object
+    gallery: PropTypes.object.isRequired
 };
 
 export default Dashboard;

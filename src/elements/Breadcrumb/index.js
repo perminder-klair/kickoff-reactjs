@@ -12,7 +12,7 @@ const Breadcrumb = ({ data }) => (
                     {!_.isUndefined(item.path) ?
                         <Link className="section" to={item.path}>{item.title}</Link>
                         :
-                            <div className="section active">{item.title}</div>
+                        <div className="section active">{item.title}</div>
                     }
                 </span>
             ))}

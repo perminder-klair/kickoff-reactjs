@@ -8,7 +8,7 @@ export default function () {
         <div className="ui container">
             <div className="ui borderless stackable menu">
                 <Link className="item" to="/">
-                    Youngworks
+                    ReactApp
                 </Link>
                 <Link className="item" to="/">Home</Link>
                 <Link className="item" to="/about">About</Link>
