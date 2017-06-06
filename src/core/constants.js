@@ -1,7 +1,7 @@
 // APP CONSTATNS
 
 const app = {
-    DEBUG: false,
+    DEBUG: process.env.NODE_ENV === 'development',
     MOCK: false,
     APP_NAME: 'Kickoff React',
 

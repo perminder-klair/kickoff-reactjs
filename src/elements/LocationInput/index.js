@@ -1,6 +1,7 @@
 /* global google:true*/
 
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 
 import Field from '../Field';

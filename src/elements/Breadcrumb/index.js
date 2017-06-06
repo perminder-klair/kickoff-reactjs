@@ -1,9 +1,18 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import _ from 'underscore';
+import styled from 'styled-components';
+
+import Wrapper from '../Wrapper';
+
+const WrapperStyled = styled(Wrapper)`
+    margin-top: 8px;
+    margin-bottom: 10px;
+`;
 
 const Breadcrumb = ({ data }) => (
-    <div className="ui container">
+    <WrapperStyled className="ui container">
         <div className="ui breadcrumb">
             <Link className="section" to="/">Home</Link>
             {data.map((item, index) => (
@@ -17,7 +26,7 @@ const Breadcrumb = ({ data }) => (
                 </span>
             ))}
         </div>
-    </div>
+    </WrapperStyled>
 );
 
 Breadcrumb.propTypes = {

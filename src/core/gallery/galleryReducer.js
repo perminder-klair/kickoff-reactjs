@@ -1,42 +1,35 @@
-import { Record } from 'immutable';
+import { createReducer } from 'reduxsauce';
 
-const {
-    GALLERY_REQUEST,
-    GALLERY_SUCCESS,
-    GALLERY_FAILURE
-} = require('./galleryActions').constants;
+import {
+    Types,
+} from './galleryActions';
 
-const InitialState = Record({
+// the initial state of this reducer
+const initialState = {
     error: null,
     isFetching: false,
     data: []
-});
+};
 
-const initialState = new InitialState();
+const request = (state = initialState) => ({ ...state, error: null, isFetching: true });
+// eslint-disable-next-line
+const failure = (state = initialState, { payload }) => ({ ...state, error: payload, isFetching: false });
 
-/**
- * ## galleryReducer function
- * @param {Object} state - initialState
- * @param {Object} action - type and payload
- */
-export default function galleryReducer(state = initialState, { payload, type }) {
-    if (!(state instanceof InitialState)) return initialState.mergeDeep(state);
+const getGallery = (state = initialState, { payload }) => {
+    return {
+        ...state,
+        isFetching: false,
+        lastUpdated: Date.now(),
+        data: payload.data.data
+    };
+};
 
-    switch (type) {
-    case GALLERY_REQUEST:
-        return state.set('isFetching', true)
-                .set('error', null);
+// map our action types to our reducer functions
+const HANDLERS = {
+    [Types.GALLERY_SUCCESS]: getGallery,
 
-    case GALLERY_SUCCESS:
-        return state.set('isFetching', false)
-            .set('data', payload.data.data);
+    [Types.GALLERY_REQUEST]: request,
+    [Types.GALLERY_FAILURE]: failure,
+};
 
-    case GALLERY_FAILURE:
-        return state.set('isFetching', false)
-                .set('error', payload);
-
-    default:
-        return state;
-
-    }
-}
+export default createReducer(initialState, HANDLERS);

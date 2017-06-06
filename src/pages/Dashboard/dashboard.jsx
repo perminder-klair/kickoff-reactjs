@@ -1,11 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
-import './dashboard.scss';
+import { Wrapper } from '../../elements';
 
 const Dashboard = function ({ gallery }) {
     return (
-        <div className="ui container dashboard">
+        <Wrapper>
             <Helmet title="Dashboard" />
             <h3 className="ui top attached header">
                 Dashboard
@@ -19,12 +20,12 @@ const Dashboard = function ({ gallery }) {
                     {gallery.data.length === 0 ?
                         <p>No gallery images found</p>
                         :
-                            gallery.data.map(item =>
-                                <img key={item._id} src={item.data.image.url} alt={item.data.title} />
+                        gallery.data.map(item =>
+                            <img key={item._id} src={item.data.image.url} alt={item.data.title} />
                     )}
                 </div>
             </div>
-        </div>
+        </Wrapper>
     );
 };
 

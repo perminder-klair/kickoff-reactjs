@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as globalActions from '../../core/global/globalActions';
-import * as galleryActions from '../../core/gallery/galleryActions';
+import { Creators as globalActions } from '../../core/global/globalActions';
+import { Creators as galleryActions } from '../../core/gallery/galleryActions';
 
 import Loading from '../../elements/Loading';
 

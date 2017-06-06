@@ -6,7 +6,7 @@ import { persistStore, autoRehydrate } from 'redux-persist';
 import immutableTransform from 'redux-persist-transform-immutable';
 import createSagaMiddleware from 'redux-saga';
 
-import { rehydrationCompleted } from './global/globalActions';
+import { Creators } from './global/globalActions';
 
 /**
 * Reducer
@@ -35,13 +35,18 @@ export default function configureStore(initialState) {
         ))
       );
 
-    // to backup state in local storage and restore on load
-    persistStore(store, {
-        transforms: [immutableTransform()],
-        blacklist: ['global']
-    }, () => {
-        store.dispatch(rehydrationCompleted(true));
-    });
+      // to backup state in local storage and restore on load
+      // do no persist in development mode
+      if (process.env.NODE_ENV === 'development') {
+          store.dispatch(Creators.rehydrationCompleted(true));
+      } else {
+          persistStore(store, {
+              transforms: [immutableTransform()],
+              blacklist: ['global', 'auth', 'timeline']
+          }, () => {
+              store.dispatch(Creators.rehydrationCompleted(true));
+          }); // .purge(); // to clear local storage, REMOVE PURGE IN LIVE MODE
+      }
 
     sagaMiddleware.run(rootSagas);
 

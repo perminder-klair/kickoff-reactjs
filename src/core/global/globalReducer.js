@@ -1,39 +1,38 @@
-import { Record } from 'immutable';
+import { createReducer } from 'reduxsauce';
 
-const {
-    REHYDRATION_COMPLETED,
-    SET_VERSION,
-    SET_BREADCRUMB
-} = require('./globalActions').constants;
+import {
+    Types,
+} from './globalActions';
 
-const InitialState = Record({
+// the initial state of this reducer
+const initialState = {
     version: null,
     breadcrumb: [],
     rehydrationCompleted: false,
-    isFetching: false
+    isFetching: false,
+    error: null,
+};
+
+const setVersion = (state = initialState, { payload }) => ({
+    ...state,
+    version: payload,
 });
 
-const initialState = new InitialState();
-/**
- * ## globalReducer function
- * @param {Object} state - initialState
- * @param {Object} action - type and payload
- */
-export default function globalReducer(state = initialState, { payload, type }) {
-    if (!(state instanceof InitialState)) return initialState.merge(state);
+const setBreadcrumb = (state = initialState, { payload }) => ({
+    ...state,
+    breadcrumb: payload,
+});
 
-    switch (type) {
-    case SET_VERSION:
-        return state.set('version', payload);
+const rehydrationCompleted = (state = initialState, { payload }) => ({
+    ...state,
+    rehydrationCompleted: payload,
+});
 
-    case SET_BREADCRUMB:
-        return state.set('breadcrumb', payload);
+// map our action types to our reducer functions
+const HANDLERS = {
+    [Types.SET_VERSION]: setVersion,
+    [Types.SET_BREADCRUMB]: setBreadcrumb,
+    [Types.REHYDRATION_COMPLETED]: rehydrationCompleted,
+};
 
-    case REHYDRATION_COMPLETED:
-        return state.set('rehydrationCompleted', payload);
-
-    default:
-        return state;
-
-    }
-}
+export default createReducer(initialState, HANDLERS);

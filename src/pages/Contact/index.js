@@ -1,8 +1,9 @@
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as globalActions from '../../core/global/globalActions';
+import { Creators as globalActions } from '../../core/global/globalActions';
 
 import DOM from './contact';
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import { Wrapper } from '../elements';
+
 const NotFound = () => (
-    <div>
+    <Wrapper>
         <Helmet title="Not found" />
         <div className="ui icon message">
             <i className="warning sign icon" />
@@ -13,7 +15,7 @@ const NotFound = () => (
                 <p>Page your are looking for does not exists.</p>
             </div>
         </div>
-    </div>
+    </Wrapper>
 );
 
 export default NotFound;

@@ -18,6 +18,10 @@ function loadStories() {
     require('../src/elements/DateFormat/DateFormat.story'); // eslint-disable-line
     require('../src/elements/Loading/Loading.story'); // eslint-disable-line
     require('../src/elements/Breadcrumb/Breadcrumb.story'); // eslint-disable-line
+    require('../src/elements/Header/Header.story'); // eslint-disable-line
+    require('../src/elements/SubHeader/SubHeader.story'); // eslint-disable-line
+    require('../src/elements/DateField/DateField.story'); // eslint-disable-line
+    require('../src/elements/FileInputField/FileInputField.story'); // eslint-disable-line
 }
 
 configure(loadStories, module);

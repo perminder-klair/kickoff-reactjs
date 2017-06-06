@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { numberFormat } from 'underscore.string';
 import _ from 'underscore';
 
@@ -24,7 +25,7 @@ CurrencyFormat.propTypes = {
     value: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
-    ]),
+    ]).isRequired,
     currency: PropTypes.string
 };
 

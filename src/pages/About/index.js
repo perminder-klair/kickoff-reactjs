@@ -1,9 +1,10 @@
-import { Component, PropTypes } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import DOM from './about';
-import * as globalActions from '../../core/global/globalActions';
+import { Creators as globalActions } from '../../core/global/globalActions';
 
 class About extends Component {
     constructor(props) {
