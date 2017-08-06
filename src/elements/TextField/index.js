@@ -15,37 +15,46 @@ const FieldStyled = styled(Field)`
     }
 `;
 
-const TextField = ({ disabled, label, name, type, hideLabel, className, ...restProps }) => (
-    <FieldWrapper
-        name={name}
-        label={label}
-        hideLabel={hideLabel}
-        className={className}>
-        <FieldStyled
-            component="input"
-            type={type}
-            name={name}
-            placeholder={label}
-            disabled={disabled}
-            {...restProps} />
-    </FieldWrapper>
-);
+const TextField = ({
+	disabled,
+	label,
+	name,
+	type,
+	hideLabel,
+	className,
+	...restProps
+}) =>
+	<FieldWrapper
+		name={name}
+		label={label}
+		hideLabel={hideLabel}
+		className={className}
+	>
+		<FieldStyled
+			component="input"
+			type={type}
+			name={name}
+			placeholder={label}
+			disabled={disabled}
+			{...restProps}
+		/>
+	</FieldWrapper>;
 
 TextField.defaultProps = {
-    label: '',
-    disabled: false,
-    type: 'text',
-    hideLabel: false,
-    className: 'field'
+	label: '',
+	disabled: false,
+	type: 'text',
+	hideLabel: false,
+	className: 'field',
 };
 
 TextField.propTypes = {
-    disabled: PropTypes.bool,
-    type: PropTypes.string,
-    label: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    hideLabel: PropTypes.bool,
-    className: PropTypes.string
+	disabled: PropTypes.bool,
+	type: PropTypes.string,
+	label: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	hideLabel: PropTypes.bool,
+	className: PropTypes.string,
 };
 
 export default TextField;

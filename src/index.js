@@ -27,36 +27,33 @@ import { Creators } from './core/global/globalActions';
  */
 import configureStore from './core/store';
 
-const {
-    VERSION
-} = require('./core/constants').default;
+const { VERSION } = require('./core/constants').default;
 
 const store = configureStore({});
-
 
 store.dispatch(Creators.setVersion(VERSION));
 
 const scrollToTop = () => {
-    const pusher = document.getElementById('app');
-    if (pusher !== null) {
-        pusher.scrollIntoView();
-    }
+	const pusher = document.getElementById('app');
+	if (pusher !== null) {
+		pusher.scrollIntoView();
+	}
 };
 
 ReactDOM.render(
-    <Provider store={store}>
-        <ThemeProvider theme={theme}>
-            <Router history={browserHistory} onUpdate={scrollToTop}>
-                <Route path="/" component={Layout}>
-                    <IndexRoute component={Dashboard} />
-                    <Route path="about" component={About} />
-                    <Route path="contact" component={Contact} />
-                    <Route path="*" component={NotFound} />
-                </Route>
-            </Router>
-        </ThemeProvider>
-    </Provider>,
-    document.getElementById('root')
+	<Provider store={store}>
+		<ThemeProvider theme={theme}>
+			<Router history={browserHistory} onUpdate={scrollToTop}>
+				<Route path="/" component={Layout}>
+					<IndexRoute component={Dashboard} />
+					<Route path="about" component={About} />
+					<Route path="contact" component={Contact} />
+					<Route path="*" component={NotFound} />
+				</Route>
+			</Router>
+		</ThemeProvider>
+	</Provider>,
+	document.getElementById('root'),
 );
 
 registerServiceWorker();

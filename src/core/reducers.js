@@ -11,9 +11,9 @@ import global from './global/globalReducer';
  * EVERY TIME there is a basic action
  */
 const rootReducer = combineReducers({
-    form: formReducer,
-    gallery,
-    global
+	form: formReducer,
+	gallery,
+	global,
 });
 
 export default rootReducer;

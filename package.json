@@ -8,7 +8,8 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "storybook": "start-storybook -p 9009 -s public",
-        "build-storybook": "build-storybook -s public"
+        "build-storybook": "build-storybook -s public",
+        "lint": "eslint --fix --ext .jsx,.js src/ server/"
     },
     "dependencies": {
         "alertify.js": "^1.0.12",
@@ -47,15 +48,16 @@
         "urijs": "^1.18.10"
     },
     "devDependencies": {
-        "@kadira/storybook": "^2.35.3",
-        "babel-eslint": "^7.2.2",
+        "@kadira/storybook": "^2.21.0",
+        "babel-eslint": "^7.2.3",
         "eslint": "^3.19.0",
-        "eslint-config-airbnb": "^15.0.1",
-        "eslint-plugin-flowtype": "^2.32.1",
+        "eslint-config-airbnb-base": "^11.3.1",
+        "eslint-config-prettier": "^2.3.0",
         "eslint-plugin-import": "^2.2.0",
         "eslint-plugin-jsx-a11y": "^5.0.1",
-        "eslint-plugin-react": "^7.0.1",
+        "eslint-plugin-prettier": "^2.1.2",
         "npm-run-all": "^4.0.2",
-        "react-scripts": "1.0.7"
+        "prettier": "^1.5.3",
+        "react-scripts": "1.0.10"
     }
 }

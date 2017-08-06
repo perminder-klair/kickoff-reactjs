@@ -16,32 +16,32 @@ const FieldStyled = styled(Field)`
     }
 `;
 
-const SelectField = ({ disabled, label, name, options }) => (
-    <FieldWrapper name={name} label={label}>
-        <FieldStyled
-            component="select"
-            name={name}
-            disabled={disabled}
-            className="ui fluid dropdown">
-            {map(options, (value, key) => (
-                <option
-                    key={key}
-                    value={key}>{value}</option>
-            ))}
-        </FieldStyled>
-    </FieldWrapper>
-);
+const SelectField = ({ disabled, label, name, options }) =>
+	<FieldWrapper name={name} label={label}>
+		<FieldStyled
+			component="select"
+			name={name}
+			disabled={disabled}
+			className="ui fluid dropdown"
+		>
+			{map(options, (value, key) =>
+				<option key={key} value={key}>
+					{value}
+				</option>,
+			)}
+		</FieldStyled>
+	</FieldWrapper>;
 
 SelectField.defaultProps = {
-    disabled: false,
-    options: []
+	disabled: false,
+	options: [],
 };
 
 SelectField.propTypes = {
-    disabled: PropTypes.bool,
-    options: PropTypes.object,
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+	disabled: PropTypes.bool,
+	options: PropTypes.object,
+	label: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
 };
 
 export default SelectField;

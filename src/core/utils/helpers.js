@@ -6,5 +6,9 @@ import URI from 'urijs';
  * @return {[type]}      [description]
  */
 export function findUrls(text) {
-    return URI.withinString(text, url => url);
+	return URI.withinString(text, url => url);
+}
+
+export function hi() {
+	return 'hello!';
 }

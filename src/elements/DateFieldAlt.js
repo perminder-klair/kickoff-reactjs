@@ -19,50 +19,58 @@ const DatePickerStyled = styled(DatePicker)`
 `;
 
 class DateFieldAlt extends Component {
-    renderInput = ({ input: { onChange, onBlur, value, ...restInput }, ...restProps }) => {
-        const handleChange = (date) => {
-            const formatted = moment(date).format('YYYY-MM-DDTHH:mm:ss.SSSSZ');
-            // const formatted = `${moment(date).format('YYYY-MM-DD')}T00:00:00.000Z`;
-            onChange(formatted);
-        };
+	renderInput = ({
+		input: { onChange, onBlur, value, ...restInput },
+		...restProps
+	}) => {
+		const handleChange = date => {
+			const formatted = moment(date).format('YYYY-MM-DDTHH:mm:ss.SSSSZ');
+			// const formatted = `${moment(date).format('YYYY-MM-DD')}T00:00:00.000Z`;
+			onChange(formatted);
+		};
 
+		return (
+			<DatePickerStyled
+				onChange={handleChange}
+				selected={
+					value
+						? moment(value, 'YYYY-MM-DDTHH:mm:ss.SSSSZ')
+						: moment()
+				}
+				{...restInput}
+				{...restProps}
+			/>
+		);
+	};
 
-        return (
-            <DatePickerStyled
-                onChange={handleChange}
-                selected={value ? moment(value, 'YYYY-MM-DDTHH:mm:ss.SSSSZ') : moment()}
-                {...restInput}
-                {...restProps} />
-        );
-    };
+	render() {
+		const { format, isClearable, name, label } = this.props;
 
-    render() {
-        const { format, isClearable, name, label } = this.props;
-
-        return (
-            <FieldWrapper name={name} label={label}>
-                <Field
-                    component={this.renderInput}
-                    name={name}
-                    isClearable={isClearable}
-                    dateFormat={format}
-                    placeholderText={label} />
-            </FieldWrapper>
-        );
-    }
+		return (
+			<FieldWrapper name={name} label={label}>
+				<Field
+					component={this.renderInput}
+					name={name}
+					isClearable={isClearable}
+					dateFormat={format}
+					placeholderText={label}
+				/>
+			</FieldWrapper>
+		);
+	}
 }
 
 DateFieldAlt.defaultProps = {
-    format: 'DD/MM/YYYY',
-    isClearable: false,
-    label: ''
+	format: 'DD/MM/YYYY',
+	isClearable: false,
+	label: '',
 };
 
 DateFieldAlt.propTypes = {
-    name: PropTypes.string.isRequired,
-    format: PropTypes.string,
-    label: PropTypes.string,
-    isClearable: PropTypes.bool
+	name: PropTypes.string.isRequired,
+	format: PropTypes.string,
+	label: PropTypes.string,
+	isClearable: PropTypes.bool,
 };
 
 export default DateFieldAlt;

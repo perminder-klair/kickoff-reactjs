@@ -21,77 +21,94 @@ const DropzoneStyled = styled(Dropzone)`
 `;
 
 class FileInputField extends Component {
-    constructor(props, context) {
-        super(props, context);
+	constructor(props, context) {
+		super(props, context);
 
-        this.state = {
-            isUpload: false
-        };
-    }
+		this.state = {
+			isUpload: false,
+		};
+	}
 
-    renderInput = ({ input: { onChange, value }, placeholder, onChangeParent }) => {
-        const { isUpload } = this.state;
-        const { path } = this.props;
+	renderInput = ({
+		input: { onChange, value },
+		placeholder,
+		onChangeParent,
+	}) => {
+		const { isUpload } = this.state;
+		const { path } = this.props;
 
-        const onDrop = (acceptedFiles) => {
-            acceptedFiles.forEach((file) => {
-                uploadFile(file, path)
-                    .then((response) => {
-                        // console.log('upload success', response);
-                        onChange(response);
-                        onChangeParent(response);
-                        this.setState({ isUpload: true });
-                    })
-                    .catch((error) => {
-                        console.log('upload error', error);
-                        alertify.error('Unable to upload your image');
-                    });
-            });
-        };
+		const onDrop = acceptedFiles => {
+			acceptedFiles.forEach(file => {
+				uploadFile(file, path)
+					.then(response => {
+						// console.log('upload success', response);
+						onChange(response);
+						onChangeParent(response);
+						this.setState({ isUpload: true });
+					})
+					.catch(error => {
+						console.log('upload error', error);
+						alertify.error('Unable to upload your image');
+					});
+			});
+		};
 
-        return (
-            <div>
-                {value.length > 2 ? <p>Uploaded file: <a href={value} target="_blank" rel="noopener noreferrer">{value.split('/').pop()}</a></p> : null}
-                <DropzoneStyled onDrop={onDrop.bind(this)}>
-                    {!isUpload ?
-                        <div>{placeholder}</div>
-                    :
-                        <div>File uploaded sucessfully.</div>
-                    }
-                </DropzoneStyled>
-            </div>
-        );
-    };
+		return (
+			<div>
+				{value.length > 2
+					? <p>
+							Uploaded file:{' '}
+							<a
+								href={value}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{value.split('/').pop()}
+							</a>
+						</p>
+					: null}
+				<DropzoneStyled onDrop={onDrop.bind(this)}>
+					{!isUpload
+						? <div>
+								{placeholder}
+							</div>
+						: <div>File uploaded sucessfully.</div>}
+				</DropzoneStyled>
+			</div>
+		);
+	};
 
-    render() {
-        const { name, label, placeholder, onChange } = this.props;
+	render() {
+		const { name, label, placeholder, onChange } = this.props;
 
-        return (
-            <FieldWrapper name={name} label={label}>
-                <Field
-                    component={this.renderInput}
-                    placeholder={placeholder}
-                    name={name}
-                    label={label}
-                    onChangeParent={onChange} />
-            </FieldWrapper>
-        );
-    }
+		return (
+			<FieldWrapper name={name} label={label}>
+				<Field
+					component={this.renderInput}
+					placeholder={placeholder}
+					name={name}
+					label={label}
+					onChangeParent={onChange}
+				/>
+			</FieldWrapper>
+		);
+	}
 }
 
 FileInputField.defaultProps = {
-    label: '',
-    placeholder: 'Try dropping some files here, or click to select files to upload.',
-    onChange: () => console.log('on change'),
-    path: '',
+	label: '',
+	placeholder:
+		'Try dropping some files here, or click to select files to upload.',
+	onChange: () => console.log('on change'),
+	path: '',
 };
 
 FileInputField.propTypes = {
-    placeholder: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    onChange: PropTypes.func,
-    path: PropTypes.string
+	placeholder: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	label: PropTypes.string,
+	onChange: PropTypes.func,
+	path: PropTypes.string,
 };
 
 export default FileInputField;

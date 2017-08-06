@@ -23,32 +23,36 @@ import rootSagas from './sagas';
  * @param {Object} the state
  */
 export default function configureStore(initialState) {
-    const sagaMiddleware = createSagaMiddleware();
+	const sagaMiddleware = createSagaMiddleware();
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // eslint-disable-line
 
-    const store = createStore(
-        reducer,
-        initialState,
-        composeEnhancers(autoRehydrate(), applyMiddleware(
-            sagaMiddleware,
-            thunk
-        ))
-      );
+	const store = createStore(
+		reducer,
+		initialState,
+		composeEnhancers(
+			autoRehydrate(),
+			applyMiddleware(sagaMiddleware, thunk),
+		),
+	);
 
-      // to backup state in local storage and restore on load
-      // do no persist in development mode
-      if (process.env.NODE_ENV === 'development') {
-          store.dispatch(Creators.rehydrationCompleted(true));
-      } else {
-          persistStore(store, {
-              transforms: [immutableTransform()],
-              blacklist: ['global', 'auth', 'timeline']
-          }, () => {
-              store.dispatch(Creators.rehydrationCompleted(true));
-          }); // .purge(); // to clear local storage, REMOVE PURGE IN LIVE MODE
-      }
+	// to backup state in local storage and restore on load
+	// do no persist in development mode
+	if (process.env.NODE_ENV === 'development') {
+		store.dispatch(Creators.rehydrationCompleted(true));
+	} else {
+		persistStore(
+			store,
+			{
+				transforms: [immutableTransform()],
+				blacklist: ['global', 'auth', 'timeline'],
+			},
+			() => {
+				store.dispatch(Creators.rehydrationCompleted(true));
+			},
+		); // .purge(); // to clear local storage, REMOVE PURGE IN LIVE MODE
+	}
 
-    sagaMiddleware.run(rootSagas);
+	sagaMiddleware.run(rootSagas);
 
-    return store;
+	return store;
 }
