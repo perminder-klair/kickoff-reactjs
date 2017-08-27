@@ -39,7 +39,7 @@ const scrollToTop = () => {
 		pusher.scrollIntoView();
 	}
 };
-
+ 
 ReactDOM.render(
 	<Provider store={store}>
 		<ThemeProvider theme={theme}>
